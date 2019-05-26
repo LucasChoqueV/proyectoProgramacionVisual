@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+        <ui:composition template="./WEB-INF/templates/plantillaTempalte.xhtml">
+            <ui:define name="content">
+                <h:form id="formCompra">
+                    <div class="box-Compra">
+                    <p:panel header="Datos del Usuario">
+                        <p:panelGrid columns="2" layout="grid">
+                            <p:outputLabel value="Nombre"/>
+                            <p:outputLabel value="#{usuarioFormBean.usuario.nombre}"/>
+                            
+                            <p:outputLabel value="Apellido"/>
+                            <p:outputLabel value="#{usuarioFormBean.usuario.apellido}"/>
+                            
+                            <p:outputLabel value="E-Mail"/>
+                            <p:outputLabel value="#{usuarioFormBean.usuario.email}"/>
+                            <p:outputLabel value="Domicilio"/>
+                            <p:outputLabel value="#{usuarioFormBean.usuario.domicilio}"/>
+                        </p:panelGrid>
+                    </p:panel>
+                        <br/>
+                    <p:panel header="Detalle de la Compra">
+                        <p:panelGrid columns="2" layout="grid">
+                            <p:outputLabel value="Codigo de Producto"/>
+                            <p:outputLabel value="#{compraFormBean.productoCompra.codigoProducto}"/>
+                            
+                            <p:outputLabel value="Nombre"/>
+                            <p:outputLabel value="#{compraFormBean.productoCompra.nombreProducto}"/>
+                            
+                            <p:outputLabel value="Caracteristicas"/>
+                            <p:outputLabel value="#{compraFormBean.productoCompra.caracteristicas}"/>
+                            
+                            <p:outputLabel value="Precio"/>
+                            <p:outputLabel value="#{compraFormBean.productoCompra.precioProducto}"/>
+                            
+                            <p:outputLabel value="Vista"/>
+                            <p:graphicImage name="#{compraFormBean.productoCompra.imagen}" width="70" height="50"/>
+                        </p:panelGrid>
+                    </p:panel>
+                        <br/>
+                    <p:commandButton id="btnConfirmar"
+                                     value="Confirmar Compra"
+                                     onclick="PF('bar1').show()"
+                                     actionListener="#{compraFormBean.agregarCompra()}"/>
+                    <p:notificationBar widgetVar="bar1"
+                                       position="bottom"
+                                        effect="slide">
+                        <h:outputText value="Compra Realizada" style="font-size: 30px"/>                  
+                    </p:notificationBar>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

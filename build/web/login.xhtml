@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./WEB-INF/templates/plantillaTempalte.xhtml">
+
+            <ui:define name="top">
+            </ui:define>
+
+            <ui:define name="content">
+                <p:growl id="growlLogin" showDetail="true"/>
+                <h:form id="formLogin">
+                    <div class="box-login">
+                        <p:panel id="pnlLogin"
+                                 header="Inicio de Sesión">
+                            <p:separator></p:separator>
+                            <p:panelGrid id="gridLogin"
+                                         columns="2"
+                                         layout="grid">
+                                <p:outputLabel value="Usuario *"/>
+                                <p:inputText id="txtID"
+                                             placeholder="Ingrese ID"
+                                             required="true"
+                                             requiredMessage="Ingrese el ID por favor"
+                                             value="#{usuarioFormBean.id}"/>
+                                <p:outputLabel value="Contraseña *"/>
+                                <p:password id="pswPass"
+                                            placeholder="Ingrese contraseña"
+                                            required="true"
+                                            requiredMessage="Ingrese la contraseña por favor"
+                                            value="#{usuarioFormBean.password}"/>
+                            </p:panelGrid>
+                            <p:separator></p:separator>
+                            <p:commandButton id="btnIniciarSesion"
+                                             style="margin-left: 230px"
+                                             update="growlLogin"
+                                             action="#{usuarioFormBean.verificarDatos()}"
+                                             actionListener="#{compraFormBean.resetearCompra()}"
+                                             value="Aceptar"/>
+                        </p:panel>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./WEB-INF/templates/plantillaTempalte.xhtml">
+            <ui:define name="content">
+                <h:form id="formLista">
+                    <p:commandButton value="Ver Direccion"
+                                     icon="ui-icon-info"
+                                     onclick="PF('bar1').show()"/>
+                    <p:commandButton value="Ocultar Direccion"
+                                     onclick="PF('bar1').hide()"/>
+                    <div class="box-Inicio">
+                        <p:contentFlow value="#{vistaProductosFormBean.images}"
+                                       var="image"
+                                       style="
+                                       margin: 0px 0px;
+                                       background-color: #000000;
+                                       border-color: #000000;
+                                       width: 1333px;
+                                       height: 380px;
+                                       ">
+                            <p:outputLabel value="EN STOCK"
+                                           style=
+                                           "font-size: 10px;
+                                           font-style: italic;
+                                           font-weight: bold;"/>
+                            <p:graphicImage name="image/inicio/#{image}" styleClass="content"/>
+                            <div class="caption">#{image}</div>
+                        </p:contentFlow>
+                    </div>
+                    
+                    <p:notificationBar widgetVar="bar1" effect="slide" position="bottom"
+                                       style="font-size: 20px; margin: auto auto;
+                                       height: 400px; width: 900px;">
+                        
+                        <p:graphicImage name="image/direccionfacultad.jpg" height="370px" width="900px"/>
+                        <p:outputLabel value="Ing Mario Italo Palanca 10, Y4600 San Salvador de Jujuy, Jujuy"/>
+                        
+                    </p:notificationBar>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

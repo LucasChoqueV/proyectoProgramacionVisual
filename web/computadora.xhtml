@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+        <ui:composition template="./WEB-INF/templates/plantillaTempalte.xhtml">
+            <ui:define name="content">
+                <p:growl id="growlCompu" showDetail="true"/>
+                <h:form id="formCompu">
+                    <p:dataScroller id="scroller"
+                                    var="compu"
+                                    rendered="true"
+                                    value="#{productoFormBean.listaComputadoras()}"
+                                    chunkSize="10">
+                        <f:facet name="header">
+                            Productos Computadora
+                        </f:facet>
+                        <p:panelGrid columns="2" layout="grid">
+                            <p:graphicImage name="#{compu.imagen}" width="650" height="450"/>
+                            <p:outputPanel>
+                                <div class="box-Producto">
+                                    <p:panelGrid columns="2" layout="grid">
+                                        <p:outputLabel value="Codigo de Producto"/>
+                                        <p:outputLabel value="#{compu.codigoProducto}"/>
+
+                                        <p:separator/><p:separator/>
+                                        <h:outputLabel value="Nombre"/>
+                                        <h:outputLabel value="#{compu.nombreProducto}"/>
+
+                                        <p:separator/><p:separator/>
+                                        <h:outputLabel value="Caracteristicas"/>
+                                        <h:outputLabel value="#{compu.caracteristicas}"/>
+
+                                        <p:separator/><p:separator/>
+                                        <p:outputLabel value="Precio"/>
+                                        <p:outputLabel value="$#{compu.precioProducto}"/>
+
+                                        <p:separator/><p:separator/>
+                                        <p:outputLabel value="Stock"/>
+                                        <p:outputLabel value="#{compu.stock}"/>
+                                        <p:separator/><p:separator/>
+
+
+                                    </p:panelGrid>
+                                    <br/>
+                                    <p:commandButton id="btnCarritoCelu"
+                                                     value="Agregar al carrito"
+                                                     action="compra"
+                                                     icon="ui-icon-cart"
+                                                     style="background: #AFAFAF; margin-left: 200px;"
+                                                     actionListener="#{compraFormBean.setProductoCompra(compu)}"/>
+                                </div>
+                            </p:outputPanel>
+                        </p:panelGrid>
+                    </p:dataScroller>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
