@@ -6,12 +6,11 @@
 package aplicacion.modelo.dominio;
 
 import java.io.Serializable;
-/**
- *
- * @author Lucas
- */
+
 public class Usuario implements Serializable{
-    
+    /**
+     * Se declara los atributos necesarios para gestionar un usuario
+     */
     private String id;
     private String password;
     private String nombre;
@@ -19,9 +18,21 @@ public class Usuario implements Serializable{
     private String email;
     private String domicilio;
     private String imagen;
+    /**
+     * Constructor por defecto
+     */
     public Usuario() {
     }
-
+    /**
+     * Constructor parametrizado
+     * @param id
+     * @param password
+     * @param nombre
+     * @param apellido
+     * @param email
+     * @param domicilio
+     * @param imagen 
+     */
     public Usuario(String id, String password, String nombre, String apellido, String email, String domicilio, String imagen) {
         this.id = id;
         this.password = password;

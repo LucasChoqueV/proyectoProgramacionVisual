@@ -11,33 +11,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author Lucas
+ * Clase que funciona como DataSource para almacenar la lista de compras
  */
 public class ListaCompra implements Serializable{
     
+    /**
+    Se declara un List de productos para almacenar los objetos de tipo productos que el usuario compre
+    */
     private List<Producto> listaCompra;
-
+    /**
+     * Se instancia la Lista de productos
+     */
     public ListaCompra() {
         listaCompra = new ArrayList<>();
     }
-    
+    /**
+     * este metodo agregar el producto en la lista de productos comprados, se crear
+     * un objeto Producto llamado auxiliar para evitar tener 2 o mas objetos con la misma referencia
+     * @param p: tiene almacenado el producto que el usuario comrpo con todas sus caracteristicas 
+     */
     public void agregarCompra(Producto p){
         Producto auxiliar = p;
         listaCompra.add(auxiliar);
-        mostrar();
     }
-    
+    /**
+     * Este metodo limpia la lista de compras
+     */
     public void resetearCompra(){
         listaCompra.clear();
     }
     
-    public void mostrar(){
-        System.out.println("Lista de compra");
-        for(Producto p : listaCompra)
-            System.out.println(p.toString());
-    }
-
     public List<Producto> getListaCompra() {
         return listaCompra;
     }
@@ -45,5 +48,4 @@ public class ListaCompra implements Serializable{
     public void setListaCompra(List<Producto> listaCompra) {
         this.listaCompra = listaCompra;
     }
-    
 }

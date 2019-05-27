@@ -7,10 +7,6 @@ package aplicacion.dao;
 
 import aplicacion.modelo.dominio.Usuario;
 
-/**
- *
- * @author Lucas
- */
 public interface IUsuarioDAO {
     
     Usuario verificarDatos(String id, String password);

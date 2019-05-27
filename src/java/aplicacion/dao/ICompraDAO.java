@@ -8,10 +8,6 @@ package aplicacion.dao;
 import aplicacion.modelo.dominio.Producto;
 import java.util.List;
 
-/**
- *
- * @author Lucas
- */
 public interface ICompraDAO {
     
     void agregarCompra(Producto p);

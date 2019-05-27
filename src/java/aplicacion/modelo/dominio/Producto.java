@@ -7,12 +7,11 @@ package aplicacion.modelo.dominio;
 
 import java.io.Serializable;
 
-/**
- *
- * @author Lucas
- */
 public class Producto implements Serializable{
     
+    /**
+     * Se declara los atributos necesarios para un producto
+     */
     private int codigoProducto;
     private int precioProducto;
     private int stock;
@@ -20,10 +19,21 @@ public class Producto implements Serializable{
     private String caracteristicas;
     private String imagen;
     private String categoria;
-
+    /**
+     * Constructor por defecto
+     */
     public Producto() {
     }
-
+    /**
+     * Construcor parametrizado
+     * @param codigoProducto
+     * @param precioProducto
+     * @param stock
+     * @param nombreProducto
+     * @param caracteristicas
+     * @param imagen
+     * @param categoria 
+     */
     public Producto(int codigoProducto, int precioProducto, int stock, String nombreProducto, String caracteristicas, String imagen, String categoria) {
         this.codigoProducto = codigoProducto;
         this.precioProducto = precioProducto;
